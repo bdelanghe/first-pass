@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "fullName": {
+      "type": "string"
+    },
+    "contactInformation": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "phoneNumber": {
+          "type": "string"
+        }
+      },
+      "required": ["email", "phoneNumber"]
+    },
+    "skills": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "proficiency": {
+            "type": "string",
+            "enum": ["beginner", "intermediate", "advanced"]
+          },
+          "experience": {
+            "type": "number"
+          }
+        },
+        "required": ["name", "proficiency", "experience"]
+      }
+    }
+  },
+  "required": ["fullName", "contactInformation", "skills"]
+}
